@@ -27,33 +27,33 @@ def get_oilrate(url):
                     'elements': [
                         {
                             'title': 'Xăng RON 95-IV',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: '+ str(xang_95_4[0]) + ' | ' + 'Vùng 2: ' + str(xang_95_4[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: '+ str(xang_95_4[0])+'đ' + ' | ' + 'Vùng 2: ' + str(xang_95_4[1])+'đ'
                         },
                         {
                             'title': 'Xăng RON 95-III',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: ' + str(xang_95_3[0]) + ' | ' + 'Vùng 2: ' + str(xang_95_3[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: ' + str(xang_95_3[0])+'đ' + ' | ' + 'Vùng 2: ' + str(xang_95_3[1])+'đ'
                         },
                         {
                             'title': 'E5 RON 92-II',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: ' + str(xang_E5_92[0]) + ' | ' + 'Vùng 2: ' + str(xang_E5_92[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: ' + str(xang_E5_92[0])+'đ' + ' | ' + 'Vùng 2: ' + str(xang_E5_92[1])+'đ'
                         },
                         {
                             'title': 'DO 0,001S-V',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: ' + str(dau_do_1SV[0]) + ' | ' + 'Vùng 2: ' + str(dau_do_1SV[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: ' + str(dau_do_1SV[0])+'đ' + ' | ' + 'Vùng 2: ' + str(dau_do_1SV[1])+'đ'
                         },
                         {
                             'title': 'DO 0,05S-II',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: ' + str(dau_do_5S[0]) + ' | ' + 'Vùng 2: ' + str(dau_do_5S[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: ' + str(dau_do_5S[0])+'đ' + ' | ' + 'Vùng 2: ' + str(dau_do_5S[1])+'đ'
                         },
                         {
                             'title': 'Dầu hỏa',
-                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
-                            'subtitle': 'Vùng 1: ' + str(dau_hoa[0]) + ' | ' + 'Vùng 2: ' + str(dau_hoa[1])
+                            'image_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
+                            'subtitle': 'Vùng 1: ' + str(dau_hoa[0])+'đ' + ' | ' + 'Vùng 2: ' + str(dau_hoa[1])+'đ'
                         }
                     ]
                 }

@@ -3,7 +3,7 @@ from flask import Flask, render_template, jsonify, request
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
 import logging
-app = Flask(__name__)
+application = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def verify():

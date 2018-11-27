@@ -45,54 +45,54 @@ def forexrate():
                             {
                             'title': get_result[0]['AUD'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[0]['AUD'][1]) + ' Bán: ' + str(get_result[0]['AUD'][3])
+                                'subtitle': 'Mua: ' + str(get_result[0]['AUD'][1]) + ' |' + ' Bán: ' + str(get_result[0]['AUD'][3])
                             },
                             {
                                 'title': get_result[1]['CAD'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[1]['CAD'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[1]['CAD'][1]) + ' |' + ' Bán: ' + str(
                                     get_result[1]['CAD'][3])
+                            },
+                            {
+                                'title': get_result[2]['CHF'][0],
+                                "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
+                                'subtitle': 'Mua: ' + str(get_result[2]['CHF'][1]) +' |' + ' Bán: ' + str(
+                                    get_result[2]['CHF'][3])
                             },
                             {
                                 'title': get_result[4]['EUR'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[4]['EUR'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[4]['EUR'][1]) +' |' + ' Bán: ' + str(
                                     get_result[4]['EUR'][3])
+                            },
+                            {
+                                'title': get_result[5]['GBP'][0],
+                                "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
+                                'subtitle': 'Mua: ' + str(get_result[5]['GBP'][1]) +' |' + ' Bán: ' + str(
+                                    get_result[5]['GBP'][3])
                             },
                             {
                                 'title': get_result[6]['HKD'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[6]['HKD'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[6]['HKD'][1]) +' |' + ' Bán: ' + str(
                                     get_result[6]['HKD'][3])
-                            },
-                            {
-                                'title': get_result[8]['JPY'][0],
-                                "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[8]['JPY'][1]) + ' Bán: ' + str(
-                                    get_result[8]['JPY'][3])
-                            },
-                            {
-                                'title': get_result[11]['MYR'][0],
-                                "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[11]['MYR'][1]) + ' Bán: ' + str(
-                                    get_result[11]['MYR'][3])
                             },
                             {
                                 'title': get_result[16]['SGD'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[16]['SGD'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[16]['SGD'][1]) +' |' + ' Bán: ' + str(
                                     get_result[16]['SGD'][3])
                             },
                             {
                                 'title': get_result[17]['THB'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[17]['THB'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[17]['THB'][1]) +' |' + ' Bán: ' + str(
                                     get_result[17]['THB'][3])
                             },
                             {
                                 'title': get_result[18]['USD'][0],
                                 "image_url": 'http://blog.buyforexonline.com/wp-content/uploads/2016/07/23463208_s-1.jpg',
-                                'subtitle': 'Mua: ' + str(get_result[18]['USD'][1]) + ' Bán: ' + str(
+                                'subtitle': 'Mua: ' + str(get_result[18]['USD'][1]) +' |' + ' Bán: ' + str(
                                     get_result[18]['USD'][3])
                             }
                         ]

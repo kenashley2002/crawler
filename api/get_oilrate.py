@@ -47,12 +47,12 @@ def get_oilrate(url):
                         },
                         {
                             'title': 'DO 0,05S-II',
-                            'img_url': '',
+                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
                             'subtitle': 'Vùng 1: ' + str(dau_do_5S[0]) + ' | ' + 'Vùng 2: ' + str(dau_do_5S[1])
                         },
                         {
                             'title': 'Dầu hỏa',
-                            'img_url': '',
+                            'img_url': 'https://investorplace.com/wp-content/uploads/2011/07/oil_chart_630_iStockphoto.jpg',
                             'subtitle': 'Vùng 1: ' + str(dau_hoa[0]) + ' | ' + 'Vùng 2: ' + str(dau_hoa[1])
                         }
                     ]

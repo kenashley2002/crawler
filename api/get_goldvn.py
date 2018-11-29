@@ -7,8 +7,9 @@ def remove_tags(text):
     tag_re = re.compile(r'<[^>]+>')
     return tag_re.sub('', str(text))
 def get_goldvn():
-    url = 'https://www.24h.com.vn/ttcb/giavang/giavang.php'
-    req = requests.get(url)
+    url = 'https://www.24h.com.vn/'
+    link = 'https://www.24h.com.vn/ttcb/giavang/giavang.php'
+    req = requests.get(link)
     soup = BeautifulSoup(req.text, 'html.parser')
     img_url = 'https://cms-img.coverfox.com/gold-rate-in-india.jpg'
     # Resolving uptime
@@ -59,7 +60,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -71,8 +72,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -84,8 +84,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -97,8 +96,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -110,8 +108,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -123,8 +120,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -136,8 +132,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -149,8 +144,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             },
@@ -162,8 +156,7 @@ def get_goldvn():
                                     {
                                         'type': 'web_url',
                                         'url': url,
-                                        'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
-                                            update_time['date'])
+                                        'title': 'Cập nhật lúc: ' + str(update_time['time'])
                                     }
                                 ]
                             }

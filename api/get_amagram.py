@@ -27,7 +27,7 @@ def get_amagram():
                                 'title': amagram['title'][0],
                                 'image_url': amagram['img'][0],
                                 'subtitle': 'Nguồn: www.amwaytoday.com.vn',
-                                'button': [
+                                'buttons': [
                                     {
                                         'title': 'Xem',
                                         'type': 'web_url',
@@ -39,7 +39,7 @@ def get_amagram():
                                 'title': amagram['title'][1],
                                 'image_url': amagram['img'][1],
                                 'subtitle': 'Nguồn: www.amwaytoday.com.vn',
-                                'button': [
+                                'buttons': [
                                     {
                                         'title': 'Xem',
                                         'type': 'web_url',

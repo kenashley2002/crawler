@@ -2,6 +2,7 @@
 from flask import Flask, render_template, jsonify, request
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
+from api.get_amagram import get_amagram
 import logging
 app = Flask(__name__)
 
@@ -24,6 +25,11 @@ def forexrate():
 @app.route('/api/oilrate', methods = ['GET'])
 def oilrate():
     json_result = get_oilrate('http://www.petrolimex.com.vn/')
+    return jsonify(json_result)
+
+@app.route('/api/amagram', methods = ['GET'])
+def amagram():
+    json_result = get_amagram()
     return jsonify(json_result)
 
 @app.errorhandler(500)

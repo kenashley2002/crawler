@@ -53,7 +53,7 @@ def get_goldvn():
                         'elements':[
                             {
                                 'title': item['tenVang'][0],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][0] + ' | ' + 'Giá bán: ' + item['giaBan'][0],
                                 'buttons': [
                                     {
@@ -65,7 +65,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][1],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][1] + ' | ' + 'Giá bán: ' + item['giaBan'][1],
                                 'buttons': [
                                     {
@@ -78,7 +78,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][2],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][2] + ' | ' + 'Giá bán: ' + item['giaBan'][2],
                                 'buttons': [
                                     {
@@ -91,7 +91,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][3],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][3] + ' | ' + 'Giá bán: ' + item['giaBan'][3],
                                 'buttons': [
                                     {
@@ -104,7 +104,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][4],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][4] + ' | ' + 'Giá bán: ' + item['giaBan'][4],
                                 'buttons': [
                                     {
@@ -117,7 +117,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][5],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][5] + ' | ' + 'Giá bán: ' + item['giaBan'][5],
                                 'buttons': [
                                     {
@@ -130,7 +130,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][6],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][6] + ' | ' + 'Giá bán: ' + item['giaBan'][6],
                                 'buttons': [
                                     {
@@ -143,7 +143,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][7],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][7] + ' | ' + 'Giá bán: ' + item['giaBan'][7],
                                 'buttons': [
                                     {
@@ -156,7 +156,7 @@ def get_goldvn():
                             },
                             {
                                 'title': item['tenVang'][8],
-                                'image': img_url,
+                                'image_url': img_url,
                                 'subtitle': 'Giá mua: ' + item['giaMua'][8] + ' | ' + 'Giá bán: ' + item['giaBan'][8],
                                 'buttons': [
                                     {

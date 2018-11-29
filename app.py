@@ -4,6 +4,7 @@ from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
 from api.get_amagram import get_amagram
 from api.get_goldvn import get_goldvn
+from api.get_news_amway import get_news_amway
 import logging
 app = Flask(__name__)
 
@@ -17,6 +18,11 @@ def verify():
         return request.args["hub.challenge"], 200
 
     return "Hello world! - Check completed", 200
+
+@app.route('/api/amwaynews', methods = ['GET'])
+def amwaynews():
+    json_result = get_news_amway()
+    return jsonify(json_result)
 
 @app.route('/api/forexrate', methods = ['GET'])
 def forexrate():

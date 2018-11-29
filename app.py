@@ -35,8 +35,8 @@ def amagram():
 
 @app.route('/api/goldvn', methods = ['GET'])
 def goldvn():
-    get_data = get_goldvn()
-    return jsonify(get_data)
+    json_result = get_goldvn()
+    return jsonify(json_result)
 
 @app.errorhandler(500)
 def server_error(e):

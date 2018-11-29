@@ -174,6 +174,3 @@ def get_goldvn():
         ]
     }
     return json_result
-
-if __name__ == '__main__':
-    get_goldvn()

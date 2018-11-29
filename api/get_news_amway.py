@@ -397,3 +397,49 @@ def get_artistry_amway():
         ]
     }
     return json_result
+
+def get_amagram_amway():
+    headurl = 'http://www.amwaytoday.com.vn'
+    url = 'http://www.amwaytoday.com.vn/tai-lieu-ho-tro/amagram.amway.article.grid.json'
+    req = requests.get(url)
+    data_news = req.json()
+    json_result = {
+        'messages': [
+            {
+                'attachment': {
+                    'type': 'template',
+                    'payload': {
+                        'template_type': 'generic',
+                        'image_aspect_ratio': 'square',
+                        'elements': [
+                            {
+                                'title': data_news['articles'][0]['title'],
+                                'image_url': headurl + data_news['articles'][0]['imageLink'],
+                                'subtitle': 'Nguồn: www.amwaytoday.com.vn',
+                                'buttons': [
+                                    {
+                                        'type': 'web_url',
+                                        'url': headurl + data_news['articles'][0]['link'],
+                                        'title': 'Xem'
+                                    }
+                                ]
+                            },
+                            {
+                                'title': data_news['articles'][1]['title'],
+                                'image_url': headurl + data_news['articles'][1]['imageLink'],
+                                'subtitle': 'Nguồn: www.amwaytoday.com.vn',
+                                'buttons': [
+                                    {
+                                        'type': 'web_url',
+                                        'url': headurl + data_news['articles'][1]['link'],
+                                        'title': 'Xem'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+    return json_result

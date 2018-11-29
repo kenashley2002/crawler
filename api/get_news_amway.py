@@ -7,7 +7,7 @@ def remove_tags(text):
 
 def get_news_amway():
     headurl = 'http://www.amwaytoday.com.vn'
-    url = 'http://www.amwaytoday.com.vn/news.amway.article.grid.json?fbclid=IwAR1l1yqIZwmA-B2y21YdZZ-PA73alqWgdzYQEMOyQsX9sYhZIOYgcb56nLs'
+    url = 'http://www.amwaytoday.com.vn/news.amway.article.grid.json'
     req = requests.get(url)
     data_news = req.json()
     json_result = {

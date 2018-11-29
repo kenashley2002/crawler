@@ -9,7 +9,7 @@ def remove_tags(text):
 def get_goldvn():
     url = 'https://www.24h.com.vn/ttcb/giavang/giavang.php'
     req = requests.get(url)
-    soup = BeautifulSoup(req.text, 'html5lib')
+    soup = BeautifulSoup(req.text, 'html.parser')
     img_url = 'https://cms-img.coverfox.com/gold-rate-in-india.jpg'
     # Resolving uptime
     uptime = []
@@ -58,7 +58,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(update_time['date'])
                                     }
                                 ]
@@ -70,7 +70,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -83,7 +83,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -96,7 +96,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -109,7 +109,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -122,7 +122,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -135,7 +135,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -148,7 +148,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }
@@ -161,7 +161,7 @@ def get_goldvn():
                                 'buttons': [
                                     {
                                         'type': 'web_url',
-                                        'url': url,
+                                        'url': None,
                                         'title': 'Cập nhật: (' + str(update_time['time']) + ') | ' + 'Ngày: (' + str(
                                             update_time['date'])
                                     }

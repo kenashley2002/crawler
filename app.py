@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, request
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
 from api.get_amagram import get_amagram
+from api.get_goldvn import get_goldvn
 import logging
 app = Flask(__name__)
 
@@ -31,6 +32,11 @@ def oilrate():
 def amagram():
     json_result = get_amagram()
     return jsonify(json_result)
+
+@app.route('/api/goldvn', methods = ['GET'])
+def goldvn():
+    get_data = get_goldvn()
+    return jsonify(get_data)
 
 @app.errorhandler(500)
 def server_error(e):

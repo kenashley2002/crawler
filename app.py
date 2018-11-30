@@ -4,6 +4,7 @@ from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
 from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry_amway, get_amagram_amway
+from api.get_quotes import get_quotes
 import logging
 app = Flask(__name__)
 
@@ -36,6 +37,11 @@ def artistrynews():
 @app.route('/api/amwaynews/amagram', methods = ['GET'])
 def amagram():
     json_result = get_amagram_amway()
+    return jsonify(json_result)
+
+@app.route('/api/quotes', methods = ['GET'])
+def quotes():
+    json_result = get_quotes()
     return jsonify(json_result)
 
 @app.route('/api/forexrate', methods = ['GET'])

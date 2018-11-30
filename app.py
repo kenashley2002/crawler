@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, jsonify, request
+from api.get_weather import get_weather
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
@@ -18,6 +19,12 @@ def verify():
         return request.args["hub.challenge"], 200
 
     return "Hello world! - Check completed", 200
+
+@app.route('/api/weather', methods = ['GET'])
+def weather():
+    city = request.args.get('city')
+    json_result = get_weather(city)
+    return jsonify(json_result)
 
 @app.route('/api/amwaynews/news', methods = ['GET'])
 def amwaynews():
@@ -53,8 +60,6 @@ def forexrate():
 def oilrate():
     json_result = get_oilrate('http://www.petrolimex.com.vn/')
     return jsonify(json_result)
-
-
 
 @app.route('/api/goldvn', methods = ['GET'])
 def goldvn():

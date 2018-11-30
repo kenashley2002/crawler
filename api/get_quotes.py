@@ -8,7 +8,7 @@ def remove_tags(text):
     tag_re = re.compile(r'<[^>]+>')
     return tag_re.sub('', str(text))
 def remove_number(text):
-    number = re.compile(r'^[\d]+\.?.')
+    number = re.compile(r'^[\d]+\^?..')
     return number.sub('', str(text))
 
 def get_quote_1():

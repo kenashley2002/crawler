@@ -13,5 +13,3 @@ def get_weather(city):
         'messages': []
     }
     return json_result
-if __name__ == '__main__':
-    get_weather('Ho chi minh city')

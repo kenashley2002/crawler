@@ -53,12 +53,12 @@ def quotes():
 
 @app.route('/api/forexrate', methods = ['GET'])
 def forexrate():
-    json_result = get_forexrate('https://www.vietcombank.com.vn/ExchangeRates/ExrateXML.aspx')
+    json_result = get_forexrate()
     return jsonify(json_result)
 
 @app.route('/api/oilrate', methods = ['GET'])
 def oilrate():
-    json_result = get_oilrate('http://www.petrolimex.com.vn/')
+    json_result = get_oilrate()
     return jsonify(json_result)
 
 @app.route('/api/goldvn', methods = ['GET'])

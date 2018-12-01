@@ -7,7 +7,8 @@ def remove_tags(text):
     tag_re = re.compile(r'<[^>]+>')
     return tag_re.sub('', str(text))
 
-def get_oilrate(url):
+def get_oilrate():
+    url = 'http://www.petrolimex.com.vn/'
     req = requests.get(url)
     soup = BeautifulSoup(req.text, 'html.parser')
     oil = soup.find('div', class_ = 'list-table').find_all('div')

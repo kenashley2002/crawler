@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_forexrate(url):
+def get_forexrate():
+    url = 'https://www.vietcombank.com.vn/ExchangeRates/ExrateXML.aspx'
     req = requests.get(url)
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')

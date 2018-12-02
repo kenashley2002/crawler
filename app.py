@@ -6,6 +6,7 @@ from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
 from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry_amway, get_amagram_amway
 from api.get_quotes import get_quotes
+from api.get_test_add_cart import get_test_add_cart
 import logging
 app = Flask(__name__)
 
@@ -19,6 +20,19 @@ def verify():
         return request.args["hub.challenge"], 200
 
     return "Hello world! - Check completed", 200
+
+@app.route('/show-buttons', methods = ['GET'])
+def show_buttons():
+    json_result = get_test_add_cart()
+    return jsonify(json_result)
+
+@app.route('/show-webview', methods = ['GET'])
+def show_webview():
+    return render_template('test.html')
+
+@app.route('/broadcast-to-chatfuel', methods = ['POST'])
+def broadcast_to_chatfuel():
+    return jsonify({})
 
 @app.route('/api/weather', methods = ['GET'])
 def weather():

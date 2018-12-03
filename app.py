@@ -84,7 +84,7 @@ def show_buttons():
 
 @app.route('/webview/show-webview', methods = ['GET'])
 def show_webview():
-    return render_template('test.html')
+    return render_template('webview.html')
 
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():

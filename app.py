@@ -6,10 +6,13 @@ from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
 from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry_amway, get_amagram_amway
 from api.get_quotes import get_quotes
-from api.get_test_add_cart import get_test_add_cart
+from webview.get_test_add_cart import get_test_add_cart
 import logging
+
+# Init Flask
 app = Flask(__name__)
 
+# Verify app on web
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
@@ -21,25 +24,14 @@ def verify():
 
     return "Hello world! - Check completed", 200
 
-@app.route('/show-buttons', methods = ['GET'])
-def show_buttons():
-    json_result = get_test_add_cart()
-    return jsonify(json_result)
-
-@app.route('/show-webview', methods = ['GET'])
-def show_webview():
-    return render_template('test.html')
-
-@app.route('/broadcast-to-chatfuel', methods = ['POST'])
-def broadcast_to_chatfuel():
-    return jsonify({})
-
+# API Weather
 @app.route('/api/weather', methods = ['GET'])
 def weather():
     city = request.args.get('city')
     json_result = get_weather(city)
     return jsonify(json_result)
 
+# API for Amway Inc.
 @app.route('/api/amwaynews/news', methods = ['GET'])
 def amwaynews():
     json_result = get_news_amway()
@@ -60,32 +52,51 @@ def amagram():
     json_result = get_amagram_amway()
     return jsonify(json_result)
 
+# API Great Quotes
 @app.route('/api/quotes', methods = ['GET'])
 def quotes():
     json_result = get_quotes()
     return jsonify(json_result)
 
+# API Forex Rates
 @app.route('/api/forexrate', methods = ['GET'])
 def forexrate():
     json_result = get_forexrate()
     return jsonify(json_result)
 
+# API Oil Rates
 @app.route('/api/oilrate', methods = ['GET'])
 def oilrate():
     json_result = get_oilrate()
     return jsonify(json_result)
 
+# API VN Gold Rates
 @app.route('/api/goldvn', methods = ['GET'])
 def goldvn():
     json_result = get_goldvn()
     return jsonify(json_result)
 
+# -*- Begin Webview Templates -*-
+@app.route('/webview/show-buttons', methods = ['GET'])
+def show_buttons():
+    json_result = get_test_add_cart()
+    return jsonify(json_result)
+
+@app.route('/webview/show-webview', methods = ['GET'])
+def show_webview():
+    return render_template('test.html')
+
+@app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
+def broadcast_to_chatfuel():
+    return jsonify({})
+# -*- End Webview -*-
+
+# Logging for error
 @app.errorhandler(500)
 def server_error(e):
     # Log the error and stacktrace.
     logging.exception('An error occurred during a request.')
     return 'An internal error occurred.', 500
-
 
 if __name__ == '__main__':
     app.run(debug = True)

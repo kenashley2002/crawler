@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import redirect,  url_for
 def get_test_add_cart():
     json_result = {
     'messages':[
@@ -14,21 +14,21 @@ def get_test_add_cart():
               'buttons':[
                 {
                   'type': 'web_url',
-                  'url': render_template('test.html'),
+                  'url': '/show-webview',
                   'title': 'Webview (compact)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'compact' # Small view
                 },
                 {
                   'type': 'web_url',
-                  'url': render_template('test.html'),
+                  'url': '',
                   'title': 'Webview (tall)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'tall' # Medium view
                 },
                 {
                   'type': 'web_url',
-                  'url': render_template('test.html'),
+                  'url': '',
                   'title': 'Webview (full)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'full' # large view

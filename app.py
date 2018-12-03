@@ -85,7 +85,6 @@ def goldvn():
 @app.route('/webview/show-buttons', methods = ['GET'])
 def show_buttons():
     userId = request.args.get('userId')
-    global userId
     json_result = get_test_add_cart(userId)
     return jsonify(json_result)
 
@@ -99,7 +98,7 @@ def show_webview():
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():
     botId = chatfuel_bot_id
-    global userId
+    userId = request.args.get('userId')
     token = chatfuel_key
     blockId = '5c03d20676ccbc01968cf102'
     fields = [k for k in request.form]

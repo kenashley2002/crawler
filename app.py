@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, url_for
 from api.get_weather import get_weather
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
@@ -92,8 +92,15 @@ def show_webview():
 
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():
-
-    return jsonify({})
+    if request.methods == 'POST':
+        botId = chatfuel_bot_id
+        userId = '1940186179401012'
+        token = broadcast_to_chatfuel
+        blockId = '5bf9155976ccbc0196b80eeb'
+        uri = "https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId) + request.body
+        return jsonify(uri)
+    else:
+        return 'fail', 404
 # -*- End Webview -*-
 
 # Logging for error

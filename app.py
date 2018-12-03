@@ -84,7 +84,8 @@ def goldvn():
 # -*- Begin Webview Templates -*-
 @app.route('/webview/show-buttons', methods = ['GET'])
 def show_buttons():
-    json_result = get_test_add_cart()
+    userId = request.args.get('userId')
+    json_result = get_test_add_cart(userId)
     return jsonify(json_result)
 
 @app.route('/webview/show-webview', methods = ['GET'])

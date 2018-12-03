@@ -1,22 +1,22 @@
 window.extAsyncInit = function() {
-        console.log('Messenger extensions are ready');
+    console.log('Messenger extensions are ready');
 
-        // Handle button click
-        $('#preferencesForm').submit(function(event) {
-          console.log('Submit pressed');
+    // Handle button click
+    $('#preferencesForm').submit(function(event) {
+      console.log('Submit pressed');
 
-          event.preventDefault();
+      event.preventDefault();
 
-          const formData = $('#preferencesForm').serialize();
+      const formData = $('#preferencesForm').serialize();
 
-          $.post('/webview/broadcast-to-chatfuel', formData, function (data) {
-            MessengerExtensions.requestCloseBrowser(function () {
-              console.log('Window will be closed');
-            }, function (error) {
-              console.log('There is an error');
-              console.log(error);
-            });
-          });
+      $.post('broadcast-to-chatfuel', formData, function (data) {
+        MessengerExtensions.requestCloseBrowser(function () {
+          console.log('Window will be closed');
+        }, function (error) {
+          console.log('There is an error');
+          console.log(error);
         });
+      });
+    });
 
-      }
+    }

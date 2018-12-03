@@ -1,5 +1,5 @@
 from flask import redirect,  url_for
-def get_test_add_cart():
+def get_test_add_cart(userId):
   displayURL = 'https://crawler-robibot.herokuapp.com'
   json_result = {
     'messages':[
@@ -10,7 +10,7 @@ def get_test_add_cart():
             'template_type': 'generic',
             'image_aspect_ratio': 'square',
             'elements': [{
-              'title': 'Welcome!',
+              'title': 'Welcome! ' + str(userId),
               'subtitle': 'Choose your preferences',
               'buttons':[
                 {

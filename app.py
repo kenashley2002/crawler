@@ -100,8 +100,10 @@ def broadcast_to_chatfuel():
     fields = [k for k in request.form]
     values = [request.form[k] for k in request.form]
     data = dict(zip(fields, values))
-    query = requests.post("https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId),
-                         json = data)
+    query = requests.post(
+        "https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(
+            botId=botId, userId=userId, token=token, blockId=blockId),
+            json=data)
     getdata = query.json()
     return jsonify(getdata)
 # -*- End Webview -*-

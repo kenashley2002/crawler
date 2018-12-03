@@ -37,13 +37,13 @@
       </script>
     <script>
       // Code copied from Facebook to load and initialise Messenger extensions
-      (function(d, s, id){
+      (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
+        if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'Messenger'));
+      }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <main>
@@ -88,7 +88,7 @@
 
           const formData = $('#preferencesForm').serialize();
 
-          $.post('/broadcast-to-chatfuel', formData, function (data) {
+          $.post('/webview/broadcast-to-chatfuel', formData, function (data) {
             MessengerExtensions.requestCloseBrowser(function () {
               console.log('Window will be closed');
             }, function (error) {
@@ -101,12 +101,7 @@
       }
     </script>
 
-      <div
-        class="fb-customerchat"
-        page_id="1920147214903175"
-        ref="WebinarRegistration">
-      </div>
-
-
+    <div class="fb-customerchat" page_id="1920147214903175" ref="WebinarRegistration">
+    </div>
   </body>
 </html>

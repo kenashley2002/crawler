@@ -88,6 +88,7 @@ def show_webview():
 
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():
+
     return jsonify({})
 # -*- End Webview -*-
 

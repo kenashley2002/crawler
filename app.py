@@ -96,12 +96,12 @@ def broadcast_to_chatfuel():
     botId = chatfuel_bot_id
     userId = '1940186179401012'
     token = chatfuel_key
-    blockId = '5bf9155976ccbc0196b80eeb'
+    blockId = '5c03d20676ccbc01968cf102'
     fields = [k for k in request.form]
     values = [request.form[k] for k in request.form]
     data = dict(zip(fields, values))
-    query = requests.get("https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId),
-                         params = data)
+    query = requests.post("https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId),
+                         json = data)
     getdata = query.json()
     return jsonify(getdata)
 # -*- End Webview -*-

@@ -7,45 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{{ url_for('static', filename='facebooksdk.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='customchat.js') }}"></script>
   </head>
   <body>
-    <script>
-      window.fbMessengerPlugins = window.fbMessengerPlugins || {
-        init: function () {
-          FB.init({
-            appId            : '1678638095724206',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.10'
-          });
-        }, callable: []
-      };
-      window.fbAsyncInit = window.fbAsyncInit || function () {
-        window.fbMessengerPlugins.callable.forEach(function (item) { item(); });
-        window.fbMessengerPlugins.init();
-      };
-      setTimeout(function () {
-        (function (d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) { return; }
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-      }, 0);
-      </script>
-    <script>
-      // Code copied from Facebook to load and initialise Messenger extensions
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-
     <main>
       <img src="https://media.giphy.com/media/5wWf7GW1AzV6pF3MaVW/giphy.gif" title="High five" />
     </main>
@@ -75,30 +40,7 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
-    <script>
-      window.extAsyncInit = function() {
-        console.log('Messenger extensions are ready');
-
-        // Handle button click
-        $('#preferencesForm').submit(function(event) {
-          console.log('Submit pressed');
-
-          event.preventDefault();
-
-          const formData = $('#preferencesForm').serialize();
-
-          $.post('/broadcast-to-chatfuel', formData, function (data) {
-            MessengerExtensions.requestCloseBrowser(function () {
-              console.log('Window will be closed');
-            }, function (error) {
-              console.log('There is an error');
-              console.log(error);
-            });
-          });
-        });
-
-      }
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='closewebview.js') }}"></script>
     <div class="fb-customerchat" page_id="202341617310522" ref="WebinarRegistration">
     </div>
   </body>

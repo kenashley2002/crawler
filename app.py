@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, make_response
 import requests
 from api.get_weather import get_weather
 from api.get_forexrate import get_forexrate
@@ -90,7 +90,10 @@ def show_buttons():
 
 @app.route('/webview/show-webview', methods = ['GET'])
 def show_webview():
-    return render_template('webview.html')
+    resp = make_response(render_template('webview.html'))
+    resp.headers.add('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/')
+    resp.headers.add('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/')
+    return resp
 
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():

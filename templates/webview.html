@@ -75,7 +75,30 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
+    <script>
+      window.extAsyncInit = function() {
+        console.log('Messenger extensions are ready');
 
+        // Handle button click
+        $('#preferencesForm').submit(function(event) {
+          console.log('Submit pressed');
+
+          event.preventDefault();
+
+          const formData = $('#preferencesForm').serialize();
+
+          $.post('/broadcast-to-chatfuel', formData, function (data) {
+            MessengerExtensions.requestCloseBrowser(function () {
+              console.log('Window will be closed');
+            }, function (error) {
+              console.log('There is an error');
+              console.log(error);
+            });
+          });
+        });
+
+      }
+    </script>
     <div class="fb-customerchat" page_id="202341617310522" ref="WebinarRegistration">
     </div>
   </body>

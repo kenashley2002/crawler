@@ -102,7 +102,8 @@ def broadcast_to_chatfuel():
     data = dict(zip(fields, values))
     query = requests.get("https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId),
                          params = data)
-    return jsonify(data), query.url
+    getdata = query.json()
+    return jsonify(getdata)
 # -*- End Webview -*-
 
 # Logging for error

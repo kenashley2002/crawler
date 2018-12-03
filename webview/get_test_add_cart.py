@@ -10,27 +10,13 @@ def get_test_add_cart(userId):
             'template_type': 'generic',
             'image_aspect_ratio': 'square',
             'elements': [{
-              'title': 'Welcome! ' + str(userId),
+              'title': 'Welcome ' + str(userId),
               'subtitle': 'Choose your preferences',
               'buttons':[
                 {
                   'type': 'web_url',
                   'url': displayURL + '/webview/show-webview',
-                  'title': 'Webview (compact)',
-                  'messenger_extensions': True,
-                  'webview_height_ratio': 'compact' # Small view
-                },
-                {
-                  'type': 'web_url',
-                  'url': displayURL + '/webview/show-webview',
-                  'title': 'Webview (tall)',
-                  'messenger_extensions': True,
-                  'webview_height_ratio': 'tall' # Medium view
-                },
-                {
-                  'type': 'web_url',
-                  'url': displayURL + '/webview/show-webview',
-                  'title': 'Webview (full)',
+                  'title': 'Webview',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'full' # Large view
                 }

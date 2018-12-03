@@ -10,16 +10,11 @@ window.extAsyncInit = function() {
       const formData = $('#preferencesForm').serialize();
 
       $.post('broadcast-to-chatfuel', formData, function (data) {
-                    MessengerExtensions.requestCloseBrowser(function success() {
-                        // webview closed
-                        console.log('Closed the window!');
-                    }, function error(error) {
-                        // an error occurred
-                        console.log('Error closing browser window!');
-                        console.log(error);
-                        $('#infoMessage').text(`requestCloseBrowser error : ${error}`);
-                    });
-                });
+        MessengerExtensions.requestCloseBrowser(function success() {
+              // webview closed
+            }, function error(err) {
+              // an error occurred
+            });
+      });
     });
-
-    }
+}

@@ -97,8 +97,11 @@ def broadcast_to_chatfuel():
         userId = '1940186179401012'
         token = broadcast_to_chatfuel
         blockId = '5bf9155976ccbc0196b80eeb'
-        uri = "https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId) + request.body
-        return jsonify(uri)
+        fields = [k for k in request.form]
+        values = [request.form[k] for k in request.form]
+        data = dict(zip(fields, values))
+        uri = request.post("https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(botId = botId, userId = userId, token = token, blockId = blockId))
+        return jsonify(data)
     else:
         return 'fail', 404
 # -*- End Webview -*-

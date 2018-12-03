@@ -9,7 +9,7 @@ window.extAsyncInit = function() {
 
       const formData = $('#preferencesForm').serialize();
 
-      $.post('broadcast-to-chatfuel', formData, function (data) {
+      $.post('webview/broadcast-to-chatfuel', formData, function (data) {
         MessengerExtensions.requestCloseBrowser(function () {
           console.log('Window will be closed');
         }, function (error) {

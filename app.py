@@ -12,6 +12,10 @@ import logging
 # Init Flask
 app = Flask(__name__)
 
+# Secret Key
+chatfuel_bot_id = '5bf6673076ccbc3d548ff901'
+chatfuel_key = 'zPgOSM7QJ2LVineaMDX4t43FTiVn0krC7uqjhZkzbWIu249sP1T4zssLtl5vtsnq'
+
 # Verify app on web
 @app.route('/', methods=['GET'])
 def verify():

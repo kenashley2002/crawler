@@ -1,6 +1,7 @@
 from flask import redirect,  url_for
 def get_test_add_cart():
-    json_result = {
+  displayURL = 'http://crawler-robibot.herokuapp.com/webview'
+  json_result = {
     'messages':[
       {
         'attachment': {
@@ -14,21 +15,21 @@ def get_test_add_cart():
               'buttons':[
                 {
                   'type': 'web_url',
-                  'url': '/show-webview',
+                  'url': displayURL + '/show-webview',
                   'title': 'Webview (compact)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'compact' # Small view
                 },
                 {
                   'type': 'web_url',
-                  'url': '',
+                  'url': displayURL + '/show-webview',
                   'title': 'Webview (tall)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'tall' # Medium view
                 },
                 {
                   'type': 'web_url',
-                  'url': '',
+                  'url': displayURL + '/show-webview',
                   'title': 'Webview (full)',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'full' # large view
@@ -39,4 +40,4 @@ def get_test_add_cart():
         }
       }
   ]}
-    return json_result
+  return json_result

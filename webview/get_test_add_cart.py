@@ -18,7 +18,7 @@ def get_test_add_cart(userId):
                   'url': displayURL + '/webview/show-webview',
                   'title': 'Webview',
                   'messenger_extensions': True,
-                  'webview_height_ratio': 'full' # Large view
+                  'webview_height_ratio': 'tall' # Med view
                 }
               ]
             }]

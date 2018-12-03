@@ -98,7 +98,7 @@ def show_webview():
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():
     botId = chatfuel_bot_id
-    userId = request.args.get('userId')
+    userId = '1940186179401012'
     token = chatfuel_key
     blockId = '5c03d20676ccbc01968cf102'
     fields = [k for k in request.form]

@@ -10,7 +10,7 @@ window.extAsyncInit = function() {
       const formData = $('#preferencesForm').serialize();
 
       $.post('broadcast-to-chatfuel', formData, function (data) {
-        window.top.close()
+        window.close()
       });
     });
 

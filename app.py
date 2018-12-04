@@ -8,7 +8,7 @@ from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
 from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry_amway, get_amagram_amway
 from api.get_quotes import get_quotes
-from webview.get_add_cart_nutrilite import get_add_cart_nutrilite
+from webview.get_add_cart import get_add_cart_nutrilite, get_add_cart_artistry
 import logging
 import json
 
@@ -80,11 +80,18 @@ def goldvn():
     return jsonify(json_result)
 
 # -*- Begin Webview Templates -*-
-@app.route('/webview/dynamic-buttons', methods = ['GET'])
-def show_buttons():
+@app.route('/webview/buttons-nutrilite', methods = ['GET'])
+def buttons_nutrilite():
     userId = request.args.get('userId')
     blockId = request.args.get('blockId')
-    json_result = (userId, blockId)
+    json_result = get_add_cart_nutrilite(userId, blockId)
+    return jsonify(json_result)
+
+@app.route('/webview/buttons-artistry', methods = ['GET'])
+def buttons_artistry():
+    userId = request.args.get('userId')
+    blockId = request.args.get('blockId')
+    json_result = get_add_cart_artistry(userId, blockId)
     return jsonify(json_result)
 
 @app.route('/webview/webview-nutrilite', methods = ['GET'])

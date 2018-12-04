@@ -1,6 +1,5 @@
-from flask import redirect,  url_for
 def get_test_add_cart(userId):
-  displayURL = 'https://crawler-robibot.herokuapp.com'
+  displayURL = 'http://127.0.0.1:5000'
   json_result = {
     'messages':[
       {

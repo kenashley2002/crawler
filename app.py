@@ -87,6 +87,10 @@ def show_buttons():
     userId = request.args.get('userId')
     json_result = get_test_add_cart(userId)
     return jsonify(json_result)
+def get_userId():
+    userId = request.args.get('userId')
+    return userId
+
 
 @app.route('/webview/show-webview', methods = ['GET'])
 def show_webview():
@@ -95,10 +99,11 @@ def show_webview():
     resp.headers.add('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/')
     return resp
 
-@app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
+@app.route('/webview/broadcast-to-chatfuel', methods = ['GET', 'POST'])
 def broadcast_to_chatfuel():
     botId = chatfuel_bot_id
-    userId = '1940186179401012'
+    userId = get_userId()
+    #userId = '1940186179401012'
     token = chatfuel_key
     blockId = '5c03d20676ccbc01968cf102'
     fields = [k for k in request.form]

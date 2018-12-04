@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, jsonify, request, make_response
 import requests
+from database.chatfuel_secretkey import chatfuel_bot_id, chatfuel_broadcast_token
 from api.get_weather import get_weather
 from api.get_forexrate import get_forexrate
 from api.get_oilrate import get_oilrate
@@ -9,13 +10,10 @@ from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry
 from api.get_quotes import get_quotes
 from webview.get_test_add_cart import get_test_add_cart
 import logging
+import json
 
 # Init Flask
 app = Flask(__name__)
-
-# Secret Key
-chatfuel_bot_id = '5bf6673076ccbc3d548ff901'
-chatfuel_key = 'zPgOSM7QJ2LVineaMDX4t43FTiVn0krC7uqjhZkzbWIu249sP1T4zssLtl5vtsnq'
 
 # Verify app on web
 @app.route('/', methods=['GET'])
@@ -82,30 +80,26 @@ def goldvn():
     return jsonify(json_result)
 
 # -*- Begin Webview Templates -*-
-@app.route('/webview/show-buttons', methods = ['GET'])
+@app.route('/webview/dynamic-buttons', methods = ['GET'])
 def show_buttons():
     userId = request.args.get('userId')
-    json_result = get_test_add_cart(userId)
+    blockId = request.args.get('blockId')
+    json_result = get_test_add_cart(userId, blockId)
     return jsonify(json_result)
-def get_userId():
-    userId = request.args.get('userId')
-    return userId
 
-
-@app.route('/webview/show-webview', methods = ['GET'])
+@app.route('/webview/dynamic-webview', methods = ['GET'])
 def show_webview():
-    resp = make_response(render_template('webview.html'))
-    resp.headers.add('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/')
-    resp.headers.add('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/')
+    userId = request.args.get('userId')
+    blockId = request.args.get('blockId')
+    resp = make_response(render_template('webview.html', userId = userId, blockId = blockId))
     return resp
 
-@app.route('/webview/broadcast-to-chatfuel', methods = ['GET', 'POST'])
+@app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])
 def broadcast_to_chatfuel():
-    botId = chatfuel_bot_id
-    userId = get_userId()
-    #userId = '1940186179401012'
-    token = chatfuel_key
-    blockId = '5c03d20676ccbc01968cf102'
+    botId = chatfuel_bot_id()
+    token = chatfuel_broadcast_token()
+    userId = request.form.get('userId')
+    blockId = request.form.get('blockId')
     fields = [k for k in request.form]
     values = [request.form[k] for k in request.form]
     data = dict(zip(fields, values))
@@ -113,8 +107,8 @@ def broadcast_to_chatfuel():
         "https://api.chatfuel.com/bots/{botId}/users/{userId}/send?chatfuel_token={token}&chatfuel_block_id={blockId}".format(
             botId=botId, userId=userId, token=token, blockId=blockId),
             json=data)
-    getdata = query.json()
-    return jsonify(getdata)
+    json_result = query.json()
+    return jsonify(json_result)
 # -*- End Webview -*-
 
 # Logging for error

@@ -1,5 +1,5 @@
-def get_test_add_cart(userId, blockId):
-  displayURL = 'http://127.0.0.1:5000'
+def get_add_cart_nutrilite(userId, blockId):
+  displayURL = 'http://crawler-robibot.herokuapp.com'
   json_result = {
     'messages':[
       {
@@ -14,7 +14,7 @@ def get_test_add_cart(userId, blockId):
               'buttons':[
                 {
                   'type': 'web_url',
-                  'url': displayURL + '/webview/dynamic-webview?userId={userId}&blockId={blockId}'.format(userId = userId, blockId = blockId),
+                  'url': displayURL + '/webview/webview-nutrilite?userId={userId}&blockId={blockId}'.format(userId = userId, blockId = blockId),
                   'title': 'Webview',
                   'messenger_extensions': True,
                   'webview_height_ratio': 'tall' # Med view

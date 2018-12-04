@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nutrilite Add Cart</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <main>
+      <img src="https://media.giphy.com/media/5wWf7GW1AzV6pF3MaVW/giphy.gif" title="High five" />
+    </main>
+
+      <h2>
+        What do you like?
+      </h2>
+      <form id="preferencesForm" action="{{ url_for('broadcast_to_chatfuel') }}" method="post">
+        <input type="checkbox" id="likes-bots" name="botsAttribute" value="yes">
+        <label for="likes-bots">Bots</label>
+
+        <input type="checkbox" id="likes-music" name="musicAttribute" value="yes">
+        <label for="likes-music">Music</label>
+
+        <input type="checkbox" id="likes-food" name="foodAttribute" value="yes">
+        <label for="likes-food">Food</label>
+
+        <input type="checkbox" id="likes-ghosts" name="ghostsAttribute" value="yes">
+        <label for="likes-ghosts">Ghosts</label>
+
+        <input type="hidden" name="userId" value="{{ userId }}" >
+        <input type="hidden" name="blockId" value="{{ blockId }}" >
+
+        <button type="submit">Submit</button>
+      </form>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='closewebview.js')}}"></script>
+    <script src="{{url_for('static', filename='facebooksdk.js')}}"></script>
+    <script src="{{url_for('static', filename='messenger_extension.js')}}"></script>
+    {% endblock %}
+
+
+    <div class="fb-customerchat" page_id="202341617310522" ref="WebinarRegistration">
+    </div>
+  </body>
+</html>

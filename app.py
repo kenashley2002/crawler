@@ -8,7 +8,7 @@ from api.get_oilrate import get_oilrate
 from api.get_goldvn import get_goldvn
 from api.get_news_amway import get_news_amway, get_nutrilite_amway, get_artistry_amway, get_amagram_amway
 from api.get_quotes import get_quotes
-from webview.get_test_add_cart import get_test_add_cart
+from webview.get_add_cart_nutrilite import get_add_cart_nutrilite
 import logging
 import json
 
@@ -84,14 +84,21 @@ def goldvn():
 def show_buttons():
     userId = request.args.get('userId')
     blockId = request.args.get('blockId')
-    json_result = get_test_add_cart(userId, blockId)
+    json_result = (userId, blockId)
     return jsonify(json_result)
 
-@app.route('/webview/dynamic-webview', methods = ['GET'])
-def show_webview():
+@app.route('/webview/webview-nutrilite', methods = ['GET'])
+def webview_nutrilite():
     userId = request.args.get('userId')
     blockId = request.args.get('blockId')
-    resp = make_response(render_template('webview.html', userId = userId, blockId = blockId))
+    resp = make_response(render_template('webview-nutrilite_test.html', userId = userId, blockId = blockId))
+    return resp
+
+@app.route('/webview/webview-artistry', methods = ['GET'])
+def webview_artistry():
+    userId = request.args.get('userId')
+    blockId = request.args.get('blockId')
+    resp = make_response(render_template('webview-artistry.html', userId = userId, blockId = blockId))
     return resp
 
 @app.route('/webview/broadcast-to-chatfuel', methods = ['POST'])

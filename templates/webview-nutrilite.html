@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <title>
+        {% block title %}
+        Nutrilite Add Cart
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Nutrilite Add Cart for BIM">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        <h1> Nutrilite Adding Cart</h1>
+        <div class="table-products">
+        {% block table %}
+        <table id="products" border="1">
+            <form id="nutriliteForm" action="{{ url_for('resovle_nutrilite') }}" method="post">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Check</th>
+                </tr>
+                <tr>
+                    <td>Protein</td>
+                    <td>...</td>
+                    <td>814000</td>
+                    <td>
+                        <input type="checkbox" id="pro" name="protein" value="814000">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vitamin C</td>
+                    <td>...</td>
+                    <td>424000</td>
+                    <td>
+                        <input type="checkbox" id="vitc" name="vitaminc" value="424000">
+                    </td>
+                </tr>
+                <tr>
+                    <td>B Complex</td>
+                    <td>...</td>
+                    <td>315000</td>
+                    <td>
+                        <input type="checkbox" id="vitb" name="vitaminb" value="315000">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Canxi & Magie</td>
+                    <td>...</td>
+                    <td>361000</td>
+                    <td>
+                        <input type="checkbox" id="canxi" name="canxi" value="361000">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td>{% block total %} {% endblock %}</td>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+
+            </form>
+        </table>
+        </div>
+        {% endblock %}
+
+        {% endblock %}
+    </div>
+    <div id="footer" >
+        {% block footer %}
+        <center>
+            &copy; Copyright 2018 by <span class="author">Ken Ashley & BIM</span><br>
+            Allright reserved.
+        </center>
+        {% endblock %}
+    </div>
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='closewebview.js')}}"></script>
+    {% endblock %}
+</body>
+</html>

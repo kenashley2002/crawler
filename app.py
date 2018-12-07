@@ -79,6 +79,14 @@ def goldvn():
     json_result = get_goldvn()
     return jsonify(json_result)
 
+@app.route('/test', methods = ['GET'])
+def test():
+    return render_template('webview-nutrilite.html')
+
+@app.route('/resolve-nutrilite', methods = ['POST'])
+def resovle_nutrilite():
+    return 'Hello World!'
+
 # -*- Begin Webview Templates -*-
 @app.route('/webview/buttons-nutrilite', methods = ['GET'])
 def buttons_nutrilite():

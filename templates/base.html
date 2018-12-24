@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Robibot Webview</title>
+    <!-- Bootstrap/ Font Awesome -->
+    <link href="{{ url_for('static', filename='css/bootstrap-4.0.0.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img class="d-block w-100" src="{{ url_for('static', filename='images/header.svg') }}"
+         alt="header-image">
+</header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link active" href="{{ url_for('home') }}">Trang chủ <span
+                        class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('to_nutrilite') }}">Nutrilite</a>
+                </li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('to_artistry') }}">Artistry</a>
+                </li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('posting') }}">Bài viết</a>
+                </li>
+                <li class="nav-item"><a class="nav-link active" href="#">Liên hệ</a></li>
+            </ul>
+            <ul class="navbar-nav mr-1">
+                <li class="form-inline my-2 my-lg-0">
+                    <a class="nav-link active" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</a>
+
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-2">
+                {% if not loggedIn %}
+                    <li class="nav-item my-2 my-lg-0"><a class="nav-link" href="{{ url_for('login') }}"><i
+                            class="fa fa-lock" aria-hidden="true"></i> Đăng
+                        nhập</a></li>
+                {% else %}
+                    <li class="nav-item dropdown my-2 my-lg-0">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-unlock-alt"
+                                                                         aria-hidden="true"></i> {{ name }}</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url_for('addItem') }}">Add products</a>
+                            <a class="dropdown-item" href="{{ url_for('edit_product') }}">Edit/Remove products</a>
+                            <a class="dropdown-item" href="{{ url_for('check_contact') }}">Check contacts</a>
+                            <a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="mySearch" class="form-control mr-sm-2" type="search" placeholder="Search"
+                       aria-label="Search">
+            </form>
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+<div class="container text-white p-4 mt-2 mb-2">
+    <div class="row">
+        <div class="col-sm-12 bg-dark rounded">
+            <address>
+                <strong>Robibot Webview</strong><br>
+                Ứng dụng hỗ trợ kinh doanh của hệ thống #BIM<br>
+                Founder: Ken Ashley<br>
+                <abbr title="Phone">Hotline:</abbr> (+84) 36-704-7770
+            </address>
+            <address>
+                <strong>Mọi chi tiết xin liên hệ:</strong><br>
+                <a href="mailto:robibot2025@gmail.com">robibot2025@gmail.com</a>
+            </address>
+        </div>
+    </div>
+</div>
+<footer class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>&copy; Copyright 2018 Robibot Webview. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <img class="d-block w-100" src="{{ url_for('static', filename='images/footer.svg') }}" alt="footer-image">
+</footer>
+{% block script %}
+    <!-- Main Script -->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-4.0.0.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.search.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/validateForm.js') }}"></script>
+{% endblock %}
+</body>
+</html>

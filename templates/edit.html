@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h2 class="text-center">TÙY CHỈNH SẢN PHẨM</h2>
+    <hr>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning col-sm-12">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {% if message != None %}
+                    {{ message }}
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="table-responsive-sm">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Sku</th>
+                    <th scope="col">Item_name</th>
+                    <th scope="col">Item_desc</th>
+                    <th scope="col">Dp_price</th>
+                    <th scope="col">Cp_price</th>
+                    <th scope="col">Pv</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Tool</th>
+                </tr>
+                </thead>
+                {% for data in itemData %}
+                    {% for row in data %}
+                        <tbody>
+                        <tr class="table-light">
+                            <th scope="row">{{ row[0] }}</th>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ "{:,.0f}".format(row[3]) }}</td>
+                            <td>{{ "{:,.0f}".format(row[4]) }}</td>
+                            <td>{{ row[5] }}</td>
+                            {% if row[6] == 'nu' %}
+                                <td>Nutrilite</td>
+                            {% else %}
+                                <td>Artistry</td>
+                            {% endif %}
+                            <td><a href="/edit/product/{{ row[0] }}" class="btn btn-primary">Sửa</a> <a
+                                    href="/remove/product/{{ row[0] }}" class="btn btn-danger">Xóa</a></td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <hr>
+{% endblock %}

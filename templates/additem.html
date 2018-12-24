@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h2 class="text-center">Thêm sản phẩm</h2>
+    <hr>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning col-sm-12">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {# Message of database #}
+                {{ message }}
+                {# End message #}
+            </div>
+        {% endfor %}
+        <form action="{{ url_for('addItem') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">SKU:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control form-control-sm" id="colFormLabelSm" name="sku">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Item Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                           name="item_name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                           name="item_desc">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Distributor Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control form-control-sm" id="colFormLabelSm"
+                           name="dp_price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Customer Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control form-control-sm" id="colFormLabelSm"
+                           name="cp_price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Point Values:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control form-control-sm" id="colFormLabelSm"
+                           name="pv" step="any">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputState" class="col-sm-2 col-form-label col-form-label-sm">Category:</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-control form-control-sm" name="category">
+                        {% for row in categories %}
+                            <option value="{{ row[0] }}">{{ row[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-success">Thêm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

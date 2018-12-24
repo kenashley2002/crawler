@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h2 class="text-center">CẬP NHẬT SẢN PHẨM</h2>
+    <hr>
+    {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning col-sm-12">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {# Message of database #}
+                {{ message }}
+                {# End message #}
+            </div>
+        {% endfor %}
+    <div class="container">
+        <form action="{{ url_for('update_product', sku=sku) }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">SKU:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="{{ sku }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">Item Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="colFormLabelSm"
+                           name="item_name" value="{{ data[1] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="colFormLabelSm"
+                           name="item_desc" value="{{ data[2] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">Distributor Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="colFormLabelSm"
+                           name="dp_price" value="{{ data[3] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">Customer Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="colFormLabelSm"
+                           name="cp_price" value="{{ data[4] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label">Point Values:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="colFormLabelSm"
+                           name="pv" step="any" value="{{ data[5] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputState" class="col-sm-2 col-form-label">Recent Category:</label>
+                <div class="col-sm-10">
+                    {% if data[6] == 'nu' %}
+                        <input class="form-control" type="text" placeholder="Nutrilite" readonly>
+                    {% else %}
+                        <input class="form-control" type="text" placeholder="Artistry" readonly>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputState" class="col-sm-2 col-form-label">New Category:</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-control" name="category">
+                        {% for row in categoryData %}
+                            <option value="{{ row[0] }}">{{ row[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm12">
+                    <button type="submit" class="btn btn-success">Cập nhật</button>
+                    <a href="{{ url_for('edit_product') }}" class="btn btn-primary">Quay lại</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+{% endblock %}

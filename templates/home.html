@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h3 class="text-center">DANH SÁCH SẢN PHẨM</h3>
+    <hr>
+    <div class="container">
+        <div class="row text-center">
+            {% for data in itemData %}
+                {% for row in data %}
+                    <div class="col-sm-4 pb-1 pb-md-0">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ row[1] }}</h5>
+                            <p class="card-text text-left">SKU: {{ row[0] }}</p>
+                            <p class="card-text text-left">{{ row[2] }}</p>
+                            <p class="card-text text-left font-weight-bold"> Giá bán lẻ: {{ "{:,.0f} VND".format(row[3]) }}</p>
+                            <p class="card-text text-left" style="font-size:0.8em"><span class="pv">PV{{ row[5] }}</span><span
+                                    class="dprice">W{{ "{:,.0f}".format(row[4]/1000) }}</span></p>
+                            <a href="#" class="btn btn-success">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+{% endblock %}

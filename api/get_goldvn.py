@@ -3,9 +3,12 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
+
 def remove_tags(text):
     tag_re = re.compile(r'<[^>]+>')
     return tag_re.sub('', str(text))
+
+
 def get_goldvn():
     url = 'https://www.24h.com.vn/'
     link = 'https://www.24h.com.vn/ttcb/giavang/giavang.php'
@@ -14,7 +17,7 @@ def get_goldvn():
     img_url = 'https://cms-img.coverfox.com/gold-rate-in-india.jpg'
     # Resolving uptime
     uptime = []
-    datetime = soup.find('div', class_ = 'capNhat').find('span')
+    datetime = soup.find('div', class_='capNhat').find('span')
     for i in datetime:
         uptime.append(i)
     update_time = {
@@ -22,7 +25,7 @@ def get_goldvn():
         'date': remove_tags(uptime[3])
     }
     # Resolving table goldvn
-    table_golds = soup.find('div', id = 'div_ban_tin_gia_vang_2').find('table').find_all('span')[2:]
+    table_golds = soup.find('div', id='div_ban_tin_gia_vang_2').find('table').find_all('span')[2:]
     table_gold = []
     for i in table_golds:
         for j in i:
@@ -30,11 +33,11 @@ def get_goldvn():
     nameGolds = []
     giaMua = []
     giaBan = []
-    for i in range(0,26,3):
+    for i in range(0, 26, 3):
         nameGolds.append(table_gold[i])
-    for i in range(1,26,3):
+    for i in range(1, 26, 3):
         giaMua.append(table_gold[i])
-    for i in range(2,27,3):
+    for i in range(2, 27, 3):
         giaBan.append(table_gold[i])
     # Adding dict
     item = {
@@ -44,14 +47,14 @@ def get_goldvn():
     }
     # Adding result
     json_result = {
-        'messages':[
+        'messages': [
             {
-                'attachment':{
+                'attachment': {
                     'type': 'template',
-                    'payload':{
+                    'payload': {
                         'template_type': 'generic',
                         'image_aspect_ratio': 'square',
-                        'elements':[
+                        'elements': [
                             {
                                 'title': item['tenVang'][0],
                                 'image_url': img_url,
